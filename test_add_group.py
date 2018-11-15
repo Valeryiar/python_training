@@ -2,6 +2,14 @@
 from selenium.webdriver.firefox.webdriver import WebDriver
 from selenium.webdriver.common.action_chains import ActionChains
 import time, unittest
+from selenium import webdriver
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
+cap = DesiredCapabilities().FIREFOX
+cap["marionette"] = False
+browser = webdriver.Firefox(capabilities=cap, executable_path="C:\\path\\to\\geckodriver.exe")
+browser.get('http://google.com/')
+browser.quit()
 
 def is_alert_present(wd):
     try:
