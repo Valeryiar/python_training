@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-import pytest
+
 from model.group import Group
-from fixture.application import Application
 
 
 from selenium import webdriver
@@ -12,12 +11,6 @@ browser = webdriver.Firefox(capabilities=cap, executable_path="C:\\path\\to\\gec
 browser.get('http://google.com/')
 browser.quit()
 
-
-@pytest.fixture
-def app(request):
-    fixture = Application()
-    request.addfinalizer(fixture.destroy)
-    return fixture
 
 
 def test_add_group(app):
